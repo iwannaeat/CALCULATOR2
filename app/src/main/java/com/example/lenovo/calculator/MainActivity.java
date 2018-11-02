@@ -1,5 +1,6 @@
 package com.example.lenovo.calculator;
 
+import android.print.PrinterId;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -68,21 +69,22 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         result.setText("0");
     }
 
-    private String x = "";
+    private String x = "0";
     private String y = "";
     private String n = "";
     private double answer;
     private String str="";
+    private String a="";
 
 
     public void onClick(View view) {
         final TextView result = (TextView) findViewById(R.id.result);
         switch (view.getId()) {
             case R.id.Btn0:
-                if (n == "")
+                if (n == ""||a=="0")
                 {
                     if (result.getText()!="0"&&str=="") result.setText(result.getText()+"0");
-                    if (result.getText()=="0"&&str=="")result.setText("0");
+                    if (result.getText()=="0"&&str=="") result.setText("0");
                     if(str=="0")
                     {
                         result.setText("0");
@@ -100,7 +102,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 }
                 break;
             case R.id.Btn1:
-                if (n == "") {
+                if (n == ""||a=="0") {
                     if (result.getText()!="0"&&str=="") result.setText(result.getText()+"1");
                     if (result.getText()=="0"&&str=="")result.setText("1");
                     if(str=="0")
@@ -110,7 +112,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     }
                     x=result.getText().toString();
                 } else {
-                    y=y+"1";
+                    if (y!="0")y=y+"1";
+                    if (y=="0")y="1";
                     if (y.startsWith("00")){
                         y=y.substring(1);
                     }
@@ -118,7 +121,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 }
                 break;
             case R.id.Btn2:
-                if (n == "") {
+                if (n == ""||a=="0") {
                     if (result.getText()!="0"&&str=="") result.setText(result.getText()+"2");
                     if (result.getText()=="0"&&str=="")result.setText("2");
                     if(str=="0")
@@ -128,7 +131,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     }
                     x=result.getText().toString();
                 } else {
-                    y=y+"2";
+                    if (y!="0")y=y+"2";
+                    if (y=="0")y="2";
                     if (y.startsWith("00")){
                         y=y.substring(1);
                     }
@@ -136,7 +140,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 }
                 break;
             case R.id.Btn3:
-                if (n == "") {
+                if (n == ""||a=="0") {
                     if (result.getText()!="0"&&str=="") result.setText(result.getText()+"3");
                     if (result.getText()=="0"&&str=="")result.setText("3");
                     if(str=="0")
@@ -146,7 +150,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     }
                     x=result.getText().toString();
                 } else {
-                    y=y+"3";
+                    if (y!="0")y=y+"3";
+                    if (y=="0")y="3";
                     if (y.startsWith("00")){
                         y=y.substring(1);
                     }
@@ -154,7 +159,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 }
                 break;
             case R.id.Btn4:
-                if (n == "") {
+                if (n == ""||a=="0") {
                     if (result.getText()!="0"&&str=="") result.setText(result.getText()+"4");
                     if (result.getText()=="0"&&str=="")result.setText("4");
                     if(str=="0")
@@ -164,7 +169,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     }
                     x=result.getText().toString();
                 } else {
-                    y=y+"4";
+                    if (y!="0")y=y+"4";
+                    if (y=="0")y="4";
                     if (y.startsWith("00")){
                         y=y.substring(1);
                     }
@@ -172,7 +178,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 }
                 break;
             case R.id.Btn5:
-                if (n == "") {
+                if (n == ""||a=="0") {
                     if (result.getText()!="0"&&str=="") result.setText(result.getText()+"5");
                     if (result.getText()=="0"&&str=="")result.setText("5");
                     if(str=="0")
@@ -182,7 +188,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     }
                     x=result.getText().toString();
                 } else {
-                    y=y+"5";
+                    if (y!="0")y=y+"5";
+                    if (y=="0")y="5";
                     if (y.startsWith("00")){
                         y=y.substring(1);
                     }
@@ -190,7 +197,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 }
                 break;
             case R.id.Btn6:
-                if (n == "") {
+                if (n == ""||a=="0") {
                     if (result.getText()!="0"&&str=="") result.setText(result.getText()+"6");
                     if (result.getText()=="0"&&str=="")result.setText("6");
                     if(str=="0")
@@ -200,7 +207,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     }
                     x=result.getText().toString();
                 } else {
-                    y=y+"6";
+                    if (y!="0")y=y+"6";
+                    if (y=="0")y="6";
                     if (y.startsWith("00")){
                         y=y.substring(1);
                     }
@@ -208,7 +216,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 }
                 break;
             case R.id.Btn7:
-                if (n == "") {
+                if (n == ""||a=="0") {
                     if (result.getText()!="0"&&str=="") result.setText(result.getText()+"7");
                     if (result.getText()=="0"&&str=="")result.setText("7");
                     if(str=="0")
@@ -218,7 +226,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     }
                     x=result.getText().toString();
                 } else {
-                    y=y+"7";
+                    if (y!="0")y=y+"7";
+                    if (y=="0")y="7";
                     if (y.startsWith("00")){
                         y=y.substring(1);
                     }
@@ -226,7 +235,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 }
                 break;
             case R.id.Btn8:
-                if (n == "") {
+                if (n == ""||a=="0") {
                     if (result.getText()!="0"&&str=="") result.setText(result.getText()+"8");
                     if (result.getText()=="0"&&str=="")result.setText("8");
                     if(str=="0")
@@ -236,7 +245,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     }
                     x=result.getText().toString();
                 } else{
-                    y=y+"8";
+                    if (y!="0")y=y+"8";
+                    if (y=="0")y="8";
                     if (y.startsWith("00")){
                         y=y.substring(1);
                     }
@@ -244,7 +254,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 }
                 break;
             case R.id.Btn9:
-                if (n == "") {
+                if (n == ""||a=="0") {
                     if (result.getText()!="0"&&str=="") result.setText(result.getText()+"9");
                     if (result.getText()=="0"&&str=="")result.setText("9");
                     if(str=="0")
@@ -254,7 +264,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     }
                     x=result.getText().toString();
                 } else {
-                    y=y+"9";
+                    if (y!="0")y=y+"9";
+                    if (y=="0")y="9";
                     if (y.startsWith("00")){
                         y=y.substring(1);
                     }
@@ -281,33 +292,77 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 }
                 break;
             case R.id.BtnPlus:
-                if (n != "")
+                if (n != ""&&a==""&&y!="")
+                {
                     jieguo(n);
+                    y="";
+                    n="";
+                }
+                if (n!=""&&a=="0"&&y!="") {
+                    y="";
+                    a="";
+                }
                 n = "+";
                 break;
             case R.id.BtnMinus:
-                if (n != "")
+                if (n != ""&&a==""&&y!="")
+                {
                     jieguo(n);
+                    y="";
+                    n="";
+                }
+                if (n!=""&&a=="0"&&y!="") {
+                    y="";
+                    a="";
+                }
                 n = "-";
                 break;
             case R.id.BtnMultiply:
-                if (n != "")
+                if (n != ""&&a==""&&y!="")
+                {
                     jieguo(n);
+                    y="";
+                    n="";
+                }
+                if (n!=""&&a=="0"&&y!=""){
+                    y="";
+                    a="";
+                }
                 n = "*";
                 break;
             case R.id.BtnDivide:
-                if (n != "")
+                if (n != ""&&a==""&&y!="")
+                {
                     jieguo(n);
+                    y="";
+                    n="";
+                }
+                if (n!=""&&a=="0"&&y!="") {
+                    y="";
+                    a="";
+                }
                 n = "/";
                 break;
             case R.id.BtnReciprocal:
-                if (n != "")
+                if (n != ""&&a=="")
+                {
                     jieguo(n);
+                    y="";
+                    n="";
+                }
+                if (n!=""&&a=="0"){
+                    y="";
+                    a="";
+                }
                 n = "1/";
                 break;
             case R.id.BtnRooting:
-                if (n != "")
+                if (n != ""&&a=="")
+                {
                     jieguo(n);
+                    y="";
+                    n="";
+                }
                 answer = Math.sqrt(Double.parseDouble(x));
                 x = Double.toString(answer);
                 if(answer%1==0)x=x.substring(0,x.length()-2);
@@ -315,8 +370,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 str="0";
                 break;
             case R.id.BtnSquare:
-                if (n != "")
+                if (n != ""&&a=="")
+                {
                     jieguo(n);
+                    y="";
+                    n="";
+                }
                 answer=Double.parseDouble(x)*Double.parseDouble(x);
                 x=Double.toString(answer);
                 if(answer%1==0)x=x.substring(0,x.length()-2);
@@ -324,21 +383,48 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 str="0";
                 break;
             case R.id.BtnEqual:
-                jieguo(n);
+                if (y!="") {
+                    jieguo(n);
+                    a = "0";
+                }
+                if (n==""){
+                    int l=0;
+                    for (l=0;l<=x.length()-1;l++){
+                        if (x.charAt(l) == '.'){
+                            while (x.substring(x.length()-1).equals("0")||x.substring(x.length()-1).equals(".")){
+                                x=x.substring(0,x.length()-1);
+                            }
+                            result.setText(x);
+                        }
+                    }
+                }
+                else {
+                    int p=0;
+                    for (p=0;p<=y.length()-1;p++){
+                        if (y.charAt(p) == '.'){
+                            while (y.substring(y.length()-1).equals("0")||y.substring(y.length()-1).equals(".")){
+                                y=y.substring(0,y.length()-1);
+                            }
+                            result.setText(y);
+                        }
+                    }
+                }
                 break;
             case R.id.BtnC:
-                x="";
+                x="0";
                 y="";
                 n="";
+                str="";
+                a="";
                 result.setText("0");
                 break;
             case R.id.BtnCE:
                 result.setText("0");
-                if (n=="")x="";
+                if (n=="")x="0";
                 else y="";
                 break;
             case R.id.BtnBack:
-                if (n == ""){
+                if (n == ""&&a==""){
                       if (result.getText()!="0"&&x.length()>=1) {
                           x = x.substring(0, x.length() - 1);
                           result.setText(x);
@@ -348,7 +434,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                           x="";
                       }
                       }
-                else {
+                else if (a==""){
                     if (result.getText()!="0"&&y.length()>=1) {
                         y = y.substring(0, y.length() - 1);
                         result.setText(y);
@@ -360,18 +446,22 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 }
                 break;
             case R.id.BtnSign:
-                if (n=="")
+                if (n==""||a=="0")
+                    {
+                        if (x=="0")break;
+                        if (x.substring(0,1) .equals("-")) x = x.substring(1);
+                        else x = "-" + x;
+                        result.setText(x);
+                    }
+                else if (y!="0")
                 {
-                    if (x.substring(0,1)=="-")x=x.substring(1);
-                    else x="-"+x;
-                    result.setText(x);
-                }
-                else
-                {
-                    if (y.substring(0,1)=="-")y=y.substring(1);
+                    if (y.substring(0,1).equals("-"))y=y.substring(1);
                     else y="-"+y;
                     result.setText(y);
                 }
+                break;
+            default:
+                break;
         }
 
     }
@@ -392,8 +482,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         x=Double.toString(answer);
         if(answer%1==0)x=x.substring(0,x.length()-2);
         result.setText(x);
-        y="";
-        n="";
         str="0";
     }
 }
