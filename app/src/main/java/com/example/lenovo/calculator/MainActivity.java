@@ -357,16 +357,30 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 n = "1/";
                 break;
             case R.id.BtnRooting:
-                if (n != ""&&a=="")
-                {
-                    jieguo(n);
-                    y="";
-                    n="";
+                if (n==""){
+                    if (Double.parseDouble(x)>=0){
+                        answer = Math.sqrt(Double.parseDouble(x));
+                        x = Double.toString(answer);
+                        if(answer%1==0)x=x.substring(0,x.length()-2);
+                        result.setText(x);
+                    }
+                    else{
+                        result.setText("无效输入");
+                        x="";
+                    }
                 }
-                answer = Math.sqrt(Double.parseDouble(x));
-                x = Double.toString(answer);
-                if(answer%1==0)x=x.substring(0,x.length()-2);
-                result.setText(x);
+                else {
+                    if (Double.parseDouble(y)>=0) {
+                        answer = Math.sqrt(Double.parseDouble(y));
+                        y = Double.toString(answer);
+                        if (answer % 1 == 0) y = y.substring(0, y.length() - 2);
+                        result.setText(y);
+                    }
+                    else{
+                        result.setText("无效输入");
+                        y="";
+                    }
+                }
                 str="0";
                 break;
             case R.id.BtnSquare:
@@ -469,15 +483,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     public void jieguo (String a) {
         final TextView result = (TextView) findViewById(R.id.result);
-        if (a=="+")
+        if (a.equals("+"))
             answer = Double.parseDouble(x) + Double.parseDouble(y);
-        if (a=="-")
+        if (a.equals("-"))
             answer = Double.parseDouble(x) - Double.parseDouble(y);
-        if (a=="*")
+        if (a.equals("*"))
             answer = Double.parseDouble(x) * Double.parseDouble(y);
-        if (a=="/")
+        if (a.equals("/"))
             answer = Double.parseDouble(x) / Double.parseDouble(y);
-        if (a=="1/")
+        if (a.equals("1/"))
             answer = 1 / Double.parseDouble(x);
         x=Double.toString(answer);
         if(answer%1==0)x=x.substring(0,x.length()-2);
