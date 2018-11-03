@@ -344,17 +344,27 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 n = "/";
                 break;
             case R.id.BtnReciprocal:
-                if (n != ""&&a=="")
+                if (n=="")
                 {
-                    jieguo(n);
-                    y="";
-                    n="";
+                    if (x.equals("0"))result.setText("除数不能为零");
+                    else {
+                        answer = 1 / Double.parseDouble(x);
+                        x = Double.toString(answer);
+                        if (answer % 1 == 0) x = x.substring(0, x.length() - 2);
+                        result.setText(x);
+                        str = "0";
+                    }
                 }
-                if (n!=""&&a=="0"){
-                    y="";
-                    a="";
+                else{
+                    if (y.equals("0"))result.setText("除数不能为零");
+                    else {
+                        answer = 1 / Double.parseDouble(y);
+                        y = Double.toString(answer);
+                        if (answer % 1 == 0) y = y.substring(0, y.length() - 2);
+                        result.setText(y);
+                        str = "0";
+                    }
                 }
-                n = "1/";
                 break;
             case R.id.BtnRooting:
                 if (n==""){
@@ -445,7 +455,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                           x="0";
                       }
                       if (result.getText()!="0"&&x.length()>=2) {
-                          x = x.substring(0, x.length() - 1);
+                          if (x.substring(0,1).equals("-")&&x.length()==2)x="0";
+                          else x = x.substring(0, x.length() - 1);
                           result.setText(x);
                       }
                       }
@@ -458,7 +469,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                         result.setText("0");
                         y="";
                     }
-                    if (result.getText()!="0"&&y.length()>=1) {
+                    if (result.getText()!="0"&&y.length()>=2) {
                         y = y.substring(0, y.length() - 1);
                         result.setText(y);
                     }
@@ -495,8 +506,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             answer = Double.parseDouble(x) * Double.parseDouble(y);
         if (a.equals("/"))
             answer = Double.parseDouble(x) / Double.parseDouble(y);
-        if (a.equals("1/") )
-            answer = 1 / Double.parseDouble(x);
         x=Double.toString(answer);
         if(answer%1==0)x=x.substring(0,x.length()-2);
         result.setText(x);
