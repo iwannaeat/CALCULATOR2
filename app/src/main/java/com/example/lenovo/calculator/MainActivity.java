@@ -409,11 +409,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.BtnEqual:
                 if (y!="") {
                     jieguo(n);
-                    a = "0";
                 }
+                a = "0";
                 if (x.equals("-0."))x="0";
                 if (x.equals("0."))x="0";
-                if (n==""){
+                if (n.equals("")){
                     int l=0;
                     for (l=0;l<=x.length()-1;l++){
                         if (x.charAt(l) == '.'){
@@ -441,11 +441,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
             case R.id.BtnCE:
                 result.setText("0");
-                if (n=="")x="0";
+                if (n.equals(""))x="0";
                 else y="";
                 break;
             case R.id.BtnBack:
-                if (n == ""&&a==""){
+                if (n .equals( "")&&a.equals("")){
                       if(x.equals("-0.")){
                           x="0";
                           result.setText(x);
@@ -460,7 +460,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                           result.setText(x);
                       }
                       }
-                else if (a==""){
+                else if (a.equals("")){
                     if(y.equals("-0.")){
                         y="0";
                         result.setText(y);
@@ -476,9 +476,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 }
                 break;
             case R.id.BtnSign:
-                if (n==""||a=="0")
+                if (n.equals("")||a.equals("0"))
                     {
-                        if (x=="0")break;
+                        if (x.equals("0"))break;
                         if (x.substring(0,1) .equals("-")) x = x.substring(1);
                         else x = "-" + x;
                         result.setText(x);
