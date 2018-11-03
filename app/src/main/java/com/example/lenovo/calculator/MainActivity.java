@@ -401,27 +401,24 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     jieguo(n);
                     a = "0";
                 }
+                if (x.equals("-0."))x="0";
+                if (x.equals("0."))x="0";
                 if (n==""){
                     int l=0;
                     for (l=0;l<=x.length()-1;l++){
                         if (x.charAt(l) == '.'){
                             while (x.substring(x.length()-1).equals("0")||x.substring(x.length()-1).equals(".")){
-                                x=x.substring(0,x.length()-1);
+                                if (x.substring(x.length()-1).equals(".")){
+                                    x=x.substring(0,x.length()-1);
+                                    break;
+                                }
+                                if (x.substring(x.length()-1).equals("0")&&x.length()>1){
+                                    x=x.substring(0,x.length()-1);
+                                }
                             }
-                            result.setText(x);
                         }
                     }
-                }
-                else {
-                    int p=0;
-                    for (p=0;p<=y.length()-1;p++){
-                        if (y.charAt(p) == '.'){
-                            while (y.substring(y.length()-1).equals("0")||y.substring(y.length()-1).equals(".")){
-                                y=y.substring(0,y.length()-1);
-                            }
-                            result.setText(y);
-                        }
-                    }
+                    result.setText(x);
                 }
                 break;
             case R.id.BtnC:
@@ -439,23 +436,31 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
             case R.id.BtnBack:
                 if (n == ""&&a==""){
-                      if (result.getText()!="0"&&x.length()>=1) {
+                      if(x.equals("-0.")){
+                          x="0";
+                          result.setText(x);
+                      }
+                      if(x.length()==1){
+                          result.setText("0");
+                          x="0";
+                      }
+                      if (result.getText()!="0"&&x.length()>=2) {
                           x = x.substring(0, x.length() - 1);
                           result.setText(x);
                       }
-                      if(x.length()==0){
-                          result.setText("0");
-                          x="";
-                      }
                       }
                 else if (a==""){
+                    if(y.equals("-0.")){
+                        y="0";
+                        result.setText(y);
+                    }
+                    if(y.length()==1){
+                        result.setText("0");
+                        y="";
+                    }
                     if (result.getText()!="0"&&y.length()>=1) {
                         y = y.substring(0, y.length() - 1);
                         result.setText(y);
-                    }
-                    if(y.length()==0){
-                        result.setText("0");
-                        y="";
                     }
                 }
                 break;
@@ -477,7 +482,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             default:
                 break;
         }
-
     }
 
 
@@ -491,7 +495,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             answer = Double.parseDouble(x) * Double.parseDouble(y);
         if (a.equals("/"))
             answer = Double.parseDouble(x) / Double.parseDouble(y);
-        if (a.equals("1/"))
+        if (a.equals("1/") )
             answer = 1 / Double.parseDouble(x);
         x=Double.toString(answer);
         if(answer%1==0)x=x.substring(0,x.length()-2);
